@@ -77,11 +77,11 @@ Configure access to NFS for clients within the same subnet (172.31.80.0/20):
 `sudo vi /etc/exports`
 
 Input code as shown into that:
-
-<!-- /mnt/apps 172.31.80.0/20(rw,sync,no_all_squash,no_root_squash)
+```
+/mnt/apps 172.31.80.0/20(rw,sync,no_all_squash,no_root_squash)
 /mnt/logs 172.31.80.0/20(rw,sync,no_all_squash,no_root_squash)
-/mnt/opt 172.31.80.0/20(rw,sync,no_all_squash,no_root_squash) -->
-
+/mnt/opt 172.31.80.0/20(rw,sync,no_all_squash,no_root_squash)
+```
 ![configure exports](./images/10_etc_exports.png)
 
 then:
@@ -206,8 +206,8 @@ Apply tooling-db.sql script to your database using this command (make sure to be
 `mysql -h <databse-private-ip> -u <db-username> -p <db-pasword> < tooling-db.sql`
 
 Create in MySQL a new admin user with username: myuser and password: password:
-
-<!-- INSERT INTO `users` (
+```
+INSERT INTO `users` (
     `id`,
     `username`,
     `password`,
@@ -222,8 +222,8 @@ VALUES (
     'user@mail',
     'admin',
     '1'
-  ); -->
-  
+  );
+```  
 ![add user](./images/add_myuser.png)
 
 Make sure to edit the bind-address:
